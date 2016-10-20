@@ -11,28 +11,48 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div></div>
-        <script type="text/javascript">
+        <div  class="Titles"></div>
+        
+        <script type="text/javascript" >
+            'use strict';
             function getAndload(url){
-                var promises = new Promises(httpPromise);
-                function httpPromise(resolve,reject){
-                    var httpRequest = new XMLHttpRequest();
-                    if( !httpRequest){
-                        reject('Cannot create an XMLHTTP instance');
+
+                        var promise = new Promise( httpPromise);
+                            function httpPromise(resolve,reject){
+                                var httpRequest = new XMLHttpRequest();//helps traffic data
+                                if ( !httpRequest ){
+                                    reject('Cannot create an XMLHTTP instance');
+                        }
+                        httpRequest.open('GET',url);
                     }
-                    httpRequest.open('GET', url);
-                    httpRequest.send();
-                    
-                    httpRequest.addEventListener('load', httpResolve.bind(httpRequest));
-                    httpRequest.addEventListener('error', httpReject.bind(httpRequest)); 
-                    
-                    function httpResolve(){
-                        if(this.status >= 200)
-                    }
-                    
-                    
-                }
+
+                        
+                
             }
+            
+            var callback = {
+              success: function(data) {
+                 console.log(data);
+              },
+              error: function(data) {
+                console.log(2, 'error', data);
+              }
+            };
+
+            function createParagraphElement(label, text) {
+                var pTag = document.createElement('p'),
+                    strongTag = document.createElement('strong'),
+                    strongText = document.createTextNode(label),
+                    pText = document.createTextNode(text);
+          
+                    strongTag.appendChild(strongText);
+                    pTag.appendChild(strongTag);  
+                    pTag.appendChild(pText);  
+                    return pTag;
+            }
+            getAndload('http://localhost:3000/todo').then(callback.success, callback.error);  
         </script>
+
+ 
     </body>
 </html>
