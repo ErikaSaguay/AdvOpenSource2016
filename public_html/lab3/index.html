@@ -11,34 +11,35 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div  class="Titles"></div>
+        <duv class="titles"><!--Information goes here --> </div>
         
         <script type="text/javascript" >
-            'use strict';
-            function getAndload(url){
 
-                        var promise = new Promise( httpPromise);
-                            function httpPromise(resolve,reject){
-                                var httpRequest = new XMLHttpRequest();//helps traffic data
-                                if ( !httpRequest ){
-                                    reject('Cannot create an XMLHTTP instance');
-                        }
-                        httpRequest.open('GET',url);
-                    }
+            function getAndload(request){
 
-                        
-                
             }
             
             var callback = {
               success: function(data) {
-                 console.log(data);
+                  displayList(data);
               },
               error: function(data) {
                 console.log(2, 'error', data);
               }
             };
+           
+            function displayList(data){
+                var dom = document.querySelector('div.titles');
+                
+                var docfrag = document.createDocumentFragment();
+                
+                docfrag.appendChild(createParagraphElement('something',data.toString()));
+                
+                dom.appendChild(docfrag);
+               
+               // docfrag.appendChild( createParagraphElement('Name: ', item.name['first']+','+ item.name['last']));
 
+            }
             function createParagraphElement(label, text) {
                 var pTag = document.createElement('p'),
                     strongTag = document.createElement('strong'),
@@ -50,7 +51,7 @@ and open the template in the editor.
                     pTag.appendChild(pText);  
                     return pTag;
             }
-            getAndload('http://localhost:3000/todo').then(callback.success, callback.error);  
+         // getAndload('http://localhost:3000/todo').then(callback.success, callback.error);  
         </script>
 
  
