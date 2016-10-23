@@ -15,9 +15,33 @@ and open the template in the editor.
         
         <script type="text/javascript" >
 
-            function getAndload(request){
-
-            }
+            function getAndload(url){
+                var promise = new Promise( httpPromise);
+                    function httpPromise(resolve, reject){
+                        var httpRequest = new XMLHttpRequest();
+                        if( !httpRequest){
+                            reject('Cannot create an XMLHTTP instance');
+                        }
+                         httpRequest.open('GET',url);
+                         httpRequest.send();
+                         httpRequest.addEventListener('load', httpResolve.bind(httpRequest));
+                         httpRequest.addEventListener('error', httpReject.bind(httpRequest));
+                        function httpResolve(){
+                            if(this.status >= 200 && this.status < 300){
+                              resolve(JSON.parse(this.response));
+                            }
+                            else(
+                                    reject(this.statusText));
+                        
+                        }
+                        function httpReject(){
+                            reject(this.statusText);
+                        }
+                    }
+                   return promise;         
+                   
+                }
+                
             
             var callback = {
               success: function(data) {
@@ -33,12 +57,10 @@ and open the template in the editor.
                 
                 var docfrag = document.createDocumentFragment();
                 
-                docfrag.appendChild(createParagraphElement('something',data.toString()));
-                
+                for(var i=0; i <data.length; i++){
+                    docfrag.appendChild(createParagraphElement("Title: ",data[i].title));
+                }
                 dom.appendChild(docfrag);
-               
-               // docfrag.appendChild( createParagraphElement('Name: ', item.name['first']+','+ item.name['last']));
-
             }
             function createParagraphElement(label, text) {
                 var pTag = document.createElement('p'),
@@ -51,7 +73,7 @@ and open the template in the editor.
                     pTag.appendChild(pText);  
                     return pTag;
             }
-         // getAndload('http://localhost:3000/todo').then(callback.success, callback.error);  
+        getAndload('http://localhost:3000/todo').then(callback.success, callback.error);  
         </script>
 
  

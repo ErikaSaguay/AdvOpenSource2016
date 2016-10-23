@@ -51,5 +51,5 @@ http.createServer(function (request, response) {
 }).listen(3000);
 
 // Console will print the message
-console.log('Server running at http://localhost:3000/index.html');
+console.log('Server running at http://localhost:3000/index');
 
