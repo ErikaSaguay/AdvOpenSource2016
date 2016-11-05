@@ -5,11 +5,13 @@ block content
  form.form-horizontal(action="/form", method="post", role="form")
         .form-group
           label.control-label(for="name") Name         
-            input#name.form-control(name="name")
+          input#name.form-control(name="name")
+        .form-group
           label.control-label(for="name") Email
-            input#name.form-control(name="email")
+          input#name.form-control(name="email")
+        .form-group
           label.control-label(for="name") Comment
-            input#name.form-control(name="comment")
+          input#name.form-control(name="comment")
         input(type="submit" value="Submit") 
     p
         strong #{name}
