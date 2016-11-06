@@ -24,11 +24,11 @@ block content
                 td 
                     = stuff.department
                 td 
-                    = stuff.startdate
+                    = stuff.startdate.toDateString()
                 td
                     = stuff.jobtitle
                 td
-                    - stuff.salary
+                    = stuff.salary
                 td
                     a(href="../update/#{stuff._id}") Update
                 td
