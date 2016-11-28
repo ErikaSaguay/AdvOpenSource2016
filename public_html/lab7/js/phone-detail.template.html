@@ -1,0 +1,8 @@
+<h1>{{vm.phone.name | uppercase}} </h1> <!--this gets the variable phone value for name-->
+
+<div class="content" >
+    <img ng-src="{{vm.phone.imageUrl}}"/> <!--this gets the image name and any string which can contain {{}} markup --> 
+    <p ng-if="vm.phone.carrier.length>0"><strong>Carrier:</strong>{{vm.phone.carrier}}</p> <!--ngIf completely removes and recreates the element in the DOM rather than changing its visibility via the display css property -->
+    <p>{{vm.phone.snippet}}</p>
+    
+</div>

@@ -1,0 +1,8 @@
+<h1>Phones</h1>
+
+<ul class="phones">
+    <!-- loops through phone for the variable vm.phones -->
+    <li ng-repeat="phone in vm.phones"><!--directive instantiates a template once per item from a collection. Each template instance gets its own scope, where the given loop variable is set to the current collection item -->
+        <a href="#/phones/{{phone.id}}">{{phone.name | uppercase}}<br/> <img ng-src="{{phone.imageUrl}}"></a> <!-- finds the location of one phone based on the id and then gets the image url-->
+    </li>
+</ul>
