@@ -1,0 +1,31 @@
+extends layout
+
+block content
+ 
+ form.form-horizontal(action="/", method="post", role="form")
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="firstname") First Name
+          .col-xs-12.col-sm-10
+          input#firstname.form-control(name="firstname")
+        .form-group
+            label.col-xs-10.col-sm-2.control-label(for="lastname") Last Name
+            .col-xs-12.co-sm-10
+            input#lastname.form-control(name="lastname")
+        .form-group
+            label.col-xs-10.col-sm-2.control-label(for="department") Department
+            .col-xs-12.co-sm-10
+            input#department.form-control(name="department")
+        .form-group 
+            label.col-xs-10.col-sm-2.control-label(for="startdate") Start Date
+            .col-xs-12.co-sm-10
+            input#startdate.form.control(type="date" name="startdate")
+        .form-group 
+            label.col-xs-10.col-sm-2.control-label(for="jobtitle") Job Title
+            .col-xs-12.co-sm-10
+            input#jobtitle.form.control(name="jobtitle")
+        .form-group 
+            label.col-xs-10.col-sm-2.control-label(for="salary") Salary
+            .col-xs-12.co-sm-10
+            input#salary.form.control(name="salary")
+
+        input(type="submit" value="Add") 
