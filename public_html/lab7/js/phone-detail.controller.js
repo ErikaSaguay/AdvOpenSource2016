@@ -9,7 +9,7 @@
         var vm = this; //variable vm 
         
         vm.phone = {}; //this will hold the values 
-        var id = $routeParams.phodeId; //creating data into the scope
+        var id = $routeParams.phoneId; //creating data into the scope
         activate(); //calls function
         
         //////////
