@@ -17,7 +17,7 @@
         function activate(){
             PhonesService.getPhones().then(function(response){
                 vm.phones = response;
-            })
+            });
         }
 
    }

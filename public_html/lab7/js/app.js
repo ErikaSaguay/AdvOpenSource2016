@@ -18,7 +18,7 @@
                    controllerAs: 'vm'
                }).  
                otherwise({ //Sets route definition that will be used on route change when no other route definition is matched.
-                   redrirectTo: '/'
-               })
+                   redirectTo: '/'
+               });
    }
 })();

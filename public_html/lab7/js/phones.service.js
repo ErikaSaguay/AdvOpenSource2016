@@ -2,7 +2,7 @@
 (function() {
    'use strict';
    angular
-           .module('app', ['ngRoute'])// angular.module is a place where you register that should be available to the application a container of parts
+           .module('app')// angular.module is a place where you register that should be available to the application a container of parts
            .factory('PhonesService' , PhonesService);//ou create an object, add properties to it, then return that same object
    
         PhonesService.$inject = ['$http', 'REQUEST'];//is used to retrieve object instances as defined by provider, instantiate types, invoke methods, and load modules.
@@ -37,11 +37,12 @@
                var results = {};
                angular.forEach(data, function (value, key) {
                if ( !results.length){
-                   if( value.hasOwnProperty('id') && value.id == id ){
+                   if( value.hasOwnProperty('id') && value.id === id ){
                        results = angular.copy(value);
                    }
                }
            },results);
+           return results;
          }
       }
    }
