@@ -16,7 +16,7 @@
         
         function activate(){
             PhonesService.findPhone(id).then(function(response) {
-                vm.phone = reponse; // call on PhonesService and goes ot findphone places the id and then add the response to the variable phone 
+                vm.phone = response; // call on PhonesService and goes ot findphone places the id and then add the response to the variable phone 
             });
         }
 
