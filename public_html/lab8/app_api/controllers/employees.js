@@ -61,11 +61,11 @@ module.exports.employeesCreate = function(req, res) {
     console.log('Creating a employee with data ', req.body);
     
     Employee.create({
-          firstName: req.body.firstname,
-          lastName: req.body.lastname,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
           department: req.body.department,
-          startDate: req.body.startdate,
-          jobTitle: req.body.jobtitle,
+          startDate: req.body.startDate,
+          jobTitle: req.body.jobTitle,
           salary: req.body.salary
     }, function(err, dataSaved) {
         if (err) {
@@ -102,11 +102,11 @@ module.exports.employeesUpdateOne = function(req, res) {
             sendJSONresponse(res, 400, err);
             return;
         }
-        employeeData.firstname = req.body.firstname;
-        employeeData.lastname = req.body.lastname;
+        employeeData.firstname = req.body.firstName;
+        employeeData.lastname = req.body.lastName;
         employeeData.department = req.body.department;
-        employeeData.startdate = req.body.startdate;
-        employeeData.jobtitle = req.body.jobtitle;
+        employeeData.startdate = req.body.startDate;
+        employeeData.jobtitle = req.body.jobTitle;
         employeeData.salary = req.body.salary;
 
         employeeData.save(function(err, data) {
@@ -141,3 +141,4 @@ module.exports.employeesDeleteOne = function(req, res) {
                 
     });
 };
+
