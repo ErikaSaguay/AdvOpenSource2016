@@ -21,13 +21,13 @@ app.set('view engine', 'jade');
 /* This will allow you to take all the JS files and compress into one file */
 var appClientFiles = [
   'app_client/app.js',
-  'app_client/review/review.module.js',
-  'app_client/review/review.routes.js',
-  'app_client/review/review.constants.js',
-  'app_client/review/review.service.js',
-  'app_client/review/review-home.controller.js',
-  'app_client/review/review-create.controller.js',
-  'app_client/review/review-update.controller.js' 
+  'app_client/employee/employee.module.js',
+  'app_client/employee/employee.routes.js',
+  'app_client/employee/employee.constants.js',
+  'app_client/employee/employee.service.js',
+  'app_client/employee/employee-home.controller.js',
+  'app_client/employee/employee-create.controller.js',
+  'app_client/employee/employee-update.controller.js' 
 ];
 var uglified = uglifyJs.minify(appClientFiles, { compress : false });
 
@@ -35,7 +35,7 @@ fs.writeFile('public/lib/employee.min.js', uglified.code, function (err){
     if(err) {
         console.log(err);
     } else {
-        console.log("Script generated and saved:", 'review.min.js');
+        console.log("Script generated and saved:", 'employee.min.js');
     }
 });
 
